@@ -3,7 +3,7 @@ class CreatePayments < ActiveRecord::Migration[5.2]
     create_table :payments do |t|
       t.integer :amount
       t.datetime :date
-      t.reference :invoice
+      t.references :invoice
 
       t.timestamps
     end

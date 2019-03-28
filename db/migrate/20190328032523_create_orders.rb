@@ -2,8 +2,8 @@ class CreateOrders < ActiveRecord::Migration[5.2]
   def change
     create_table :orders do |t|
       t.datetime :date
-      t.reference :user
-      t.reference :order_item
+      t.references :user
+      t.references :order_item
 
       t.timestamps
     end
