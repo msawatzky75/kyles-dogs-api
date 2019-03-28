@@ -3,12 +3,22 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
 
 Product.destroy_all
 ProductCategory.destroy_all
+ProductStatusCode.destroy_all
 
 normal = ProductStatusCode.create(name: 'Normal', description: 'This marks a normal product.')
 new = ProductStatusCode.create(name: 'New', description: 'This marks a new product.')
 sale = ProductStatusCode.create(name: 'Sale', description: 'This marks a product on sale.')
 
-standard = ProductCategory.create(name: "Standard", description: "The standard mealdog category.")
-# .products.create(name: "The Standard", description: "The standard mealdog.", price: 9.99, product_status_code: normal)
-
-standard.products.create(name: Spicy::Proton.format('%b %v').titleize + ' Mealdog', description: 'A ' + Spicy::Proton.adjective + 'tasting mealdog.')
+proton = Spicy::Proton.new
+10.times do
+	cat = ProductCategory.create(
+		name: proton.adjective,
+		description: proton.format("%a %b %n"))
+	10.times do
+		cat.products.create(
+			name: proton.format('%b %v').titleize + ' Mealdog',
+			description: 'A ' + proton.adjective + ' mealdog.',
+			product_status_code: ProductStatusCode.order("RANDOM()").first
+		)
+	end
+end
