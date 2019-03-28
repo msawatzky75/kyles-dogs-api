@@ -18,6 +18,7 @@ proton = Spicy::Proton.new
 		cat.products.create(
 			name: proton.format('%b %v').titleize + ' Mealdog',
 			description: 'A ' + proton.adjective + ' mealdog.',
+			price: rand(500..2999),
 			product_status_code: ProductStatusCode.order("RANDOM()").first
 		)
 	end
