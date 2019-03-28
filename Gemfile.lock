@@ -58,6 +58,7 @@ GEM
       activesupport (>= 3.0.0)
     arel (9.0.0)
     bcrypt (3.1.12)
+    bindata (2.4.4)
     bootsnap (1.4.2)
       msgpack (~> 1.0)
     builder (3.2.3)
@@ -187,6 +188,8 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+    spicy-proton (2.1.1)
+      bindata (~> 2.3)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -223,6 +226,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.2, >= 5.2.2.1)
+  spicy-proton
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
