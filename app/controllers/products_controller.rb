@@ -3,9 +3,10 @@ class ProductsController < ApiController
 
   # GET /products
   def index
-    @products = Product.all
+    # @products = Product.all
+    # render json: @products
 
-    render json: @products
+    paginate Product.unscoped, per_page: 10
   end
 
   # GET /products/1
