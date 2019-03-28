@@ -1,4 +1,4 @@
-class InvoiceStatusCodesController < ApplicationController
+class InvoiceStatusCodesController < ApiController
   before_action :set_invoice_status_code, only: [:show, :update, :destroy]
 
   # GET /invoice_status_codes

@@ -1,4 +1,4 @@
-class ProductStatusCodesController < ApplicationController
+class ProductStatusCodesController < ApiController
   before_action :set_product_status_code, only: [:show, :update, :destroy]
 
   # GET /product_status_codes

@@ -1,4 +1,4 @@
-class OrderItemsController < ApplicationController
+class OrderItemsController < ApiController
   before_action :set_order_item, only: [:show, :update, :destroy]
 
   # GET /order_items

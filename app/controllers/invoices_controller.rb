@@ -1,4 +1,4 @@
-class InvoicesController < ApplicationController
+class InvoicesController < ApiController
   before_action :set_invoice, only: [:show, :update, :destroy]
 
   # GET /invoices
