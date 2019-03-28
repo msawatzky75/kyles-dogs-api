@@ -41,15 +41,6 @@ ActiveRecord::Schema.define(version: 2019_03_28_033842) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "cart_items", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_cart_items_on_product_id"
-    t.index ["user_id"], name: "index_cart_items_on_user_id"
-  end
-
   create_table "invoice_status_codes", force: :cascade do |t|
     t.string "name"
     t.text "description"
