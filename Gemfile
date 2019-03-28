@@ -5,6 +5,8 @@ ruby '2.6.0'
 
 gem 'activeadmin'
 gem 'devise'
+gem 'carrierwave'
+gem 'mini_magick'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
