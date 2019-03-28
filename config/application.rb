@@ -35,5 +35,7 @@ module KylesDogsApi
     # Fixes issues with scaffolding and ActiveAdmin in Rails API mode.
     config.app_generators.scaffold_controller = :scaffold_controller
     config.middleware.use ActionDispatch::Flash
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
   end
 end
