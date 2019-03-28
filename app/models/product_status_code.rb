@@ -1,0 +1,2 @@
+class ProductStatusCode < ApplicationRecord
+end

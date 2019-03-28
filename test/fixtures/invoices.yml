@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2019-03-27 22:25:19
+  invoice_status_code: 
+
+two:
+  date: 2019-03-27 22:25:19
+  invoice_status_code: 
