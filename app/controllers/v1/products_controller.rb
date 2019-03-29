@@ -4,16 +4,14 @@ module V1
 
     # GET /products
     def index
-      # @products = Product.all
-      # render json: @products
-
-      paginate Product.unscoped, per_page: 10
+      @products = Product.search({ product_category: params[:product_category] })
+      paginate @products, per_page: 10
     end
 
-    def search
-      @products = Product.where(product_params)
-      render json: @products
-    end
+    # def search
+    #   @products = Product.where(product_params)
+    #   render json: @products
+    # end
 
     # GET /products/1
     def show
