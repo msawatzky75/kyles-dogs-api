@@ -1,4 +1,5 @@
-class OrderItemsController < ApiController
+module V1
+  class OrderItemsController < ApiController
   before_action :set_order_item, only: [:show, :update, :destroy]
 
   # GET /order_items
@@ -48,4 +49,5 @@ class OrderItemsController < ApiController
     def order_item_params
       params.require(:order_item).permit(:price, :quantity, :product)
     end
+  end
 end

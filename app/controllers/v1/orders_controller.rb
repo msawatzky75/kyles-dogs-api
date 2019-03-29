@@ -1,4 +1,5 @@
-class OrdersController < ApiController
+module V1
+  class OrdersController < ApiController
   before_action :set_order, only: [:show, :update, :destroy]
 
   # GET /orders
@@ -48,4 +49,5 @@ class OrdersController < ApiController
     def order_params
       params.require(:order).permit(:date, :user, :order_item)
     end
+  end
 end

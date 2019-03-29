@@ -1,4 +1,5 @@
-class PaymentsController < ApiController
+module V1
+  class PaymentsController < ApiController
   before_action :set_payment, only: [:show, :update, :destroy]
 
   # GET /payments
@@ -48,4 +49,5 @@ class PaymentsController < ApiController
     def payment_params
       params.require(:payment).permit(:amount, :date, :invoice)
     end
+  end
 end

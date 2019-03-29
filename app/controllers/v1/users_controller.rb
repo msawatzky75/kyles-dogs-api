@@ -1,4 +1,5 @@
-class UsersController < ApiController
+module V1
+  class UsersController < ApiController
   before_action :set_user, only: [:show, :update, :destroy]
 
   # GET /users
@@ -48,4 +49,5 @@ class UsersController < ApiController
     def user_params
       params.require(:user).permit(:name, :email)
     end
+  end
 end

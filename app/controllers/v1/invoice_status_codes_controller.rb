@@ -1,4 +1,5 @@
-class InvoiceStatusCodesController < ApiController
+module V1
+  class InvoiceStatusCodesController < ApiController
   before_action :set_invoice_status_code, only: [:show, :update, :destroy]
 
   # GET /invoice_status_codes
@@ -48,4 +49,5 @@ class InvoiceStatusCodesController < ApiController
     def invoice_status_code_params
       params.require(:invoice_status_code).permit(:name, :description)
     end
+  end
 end

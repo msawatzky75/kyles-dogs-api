@@ -1,4 +1,5 @@
-class InvoicesController < ApiController
+module V1
+  class InvoicesController < ApiController
   before_action :set_invoice, only: [:show, :update, :destroy]
 
   # GET /invoices
@@ -48,4 +49,5 @@ class InvoicesController < ApiController
     def invoice_params
       params.require(:invoice).permit(:date, :invoice_status_code)
     end
+  end
 end

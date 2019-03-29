@@ -1,4 +1,5 @@
-class ProductStatusCodesController < ApiController
+module V1
+  class ProductStatusCodesController < ApiController
   before_action :set_product_status_code, only: [:show, :update, :destroy]
 
   # GET /product_status_codes
@@ -48,4 +49,5 @@ class ProductStatusCodesController < ApiController
     def product_status_code_params
       params.require(:product_status_code).permit(:name, :description)
     end
+  end
 end

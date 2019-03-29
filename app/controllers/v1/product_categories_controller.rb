@@ -1,4 +1,5 @@
-class ProductCategoriesController < ApiController
+module V1
+  class ProductCategoriesController < ApiController
   before_action :set_product_category, only: [:show, :update, :destroy]
 
   # GET /product_categories
@@ -48,4 +49,5 @@ class ProductCategoriesController < ApiController
     def product_category_params
       params.require(:product_category).permit(:name, :description)
     end
+  end
 end

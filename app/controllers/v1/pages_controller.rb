@@ -1,4 +1,5 @@
-class PagesController < ApiController
+module V1
+  class PagesController < ApiController
   before_action :set_page, only: [:show, :update, :destroy]
 
   # GET /pages
@@ -48,4 +49,5 @@ class PagesController < ApiController
     def page_params
       params.require(:page).permit(:title, :content)
     end
+  end
 end
