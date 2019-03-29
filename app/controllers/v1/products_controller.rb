@@ -46,14 +46,15 @@ module V1
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_product
-        @product = Product.find(params[:id])
-      end
 
-      # Only allow a trusted parameter "white list" through.
-      def product_params
-        params.require(:product).permit(:name, :description, :price, :product_status_code, :product_category)
-      end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_product
+      @product = Product.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def product_params
+      params.require(:product).permit(:name, :description, :price, :product_status_code, :product_category)
+    end
   end
 end

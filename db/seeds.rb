@@ -11,15 +11,16 @@ sale = ProductStatusCode.create(name: 'Sale', description: 'This marks a product
 
 proton = Spicy::Proton.new
 10.times do
-	cat = ProductCategory.create(
-		name: proton.adjective,
-		description: proton.format("%a %b %n"))
-	10.times do
-		cat.products.create(
-			name: proton.format('%b %v').titleize + ' Mealdog',
-			description: 'A ' + proton.adjective + ' mealdog.',
-			price: rand(500..2999),
-			product_status_code: ProductStatusCode.order("RANDOM()").first
-		)
-	end
+  cat = ProductCategory.create(
+    name: proton.adjective,
+    description: proton.format("%a %b %n")
+  )
+  10.times do
+    cat.products.create(
+      name: proton.format('%b %v').titleize + ' Mealdog',
+      description: 'A ' + proton.adjective + ' mealdog.',
+      price: rand(500..2999),
+      product_status_code: ProductStatusCode.order("RANDOM()").first
+    )
+  end
 end

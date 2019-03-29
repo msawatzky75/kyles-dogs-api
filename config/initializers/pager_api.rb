@@ -3,7 +3,6 @@
 # Made with love by @icalialabs
 
 PagerApi.setup do |config|
-
   # Pagination Handler
   # User this option to meet your pagination handler, whether is :kaminari or :will_paginate
   config.pagination_handler = :kaminari
