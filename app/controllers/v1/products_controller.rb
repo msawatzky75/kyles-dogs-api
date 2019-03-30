@@ -4,14 +4,18 @@ module V1
 
     # GET /products
     def index
-      @products = Product.search({ product_category: params[:product_category] })
+      # ILIKE - postgres case insensitivity
+      # price, price range (including invert), general search, name, description, category, status code
+      @products = Product.all # creates an anonymous scope
+      @products = @products.where(product_category: params[:product_category]) if params[:product_category].present?
+      @products = @products.where(product_status_code: params[:product_status_code]) if params[:product_status_code].present?
+      @products = @products.where('name ILIKE ?', "%#{params[:name]}%") if params[:name].present?
+      @products = @products.where('description ILIKE ?', "%#{params[:description]}%") if params[:description].present?
+      @products = @products.where('name ILIKE ? OR description ILIKE ?', "%#{params[:search]}%", "%#{params[:search]}%") if params[:search].present?
+      @products = @products.where(price: params[:price]) if params[:price].present?
+      @products = @products.where(params[:not_between].present? ? 'price NOT BETWEEN ? AND ?' : 'price BETWEEN ? AND ?', params[:price_low].present? ? params[:price_low] : 0, params[:price_high].present? ? params[:price_high] : 1_000_000_000)
       paginate @products, per_page: 10
     end
-
-    # def search
-    #   @products = Product.where(product_params)
-    #   render json: @products
-    # end
 
     # GET /products/1
     def show
