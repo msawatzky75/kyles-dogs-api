@@ -24,3 +24,6 @@ proton = Spicy::Proton.new
     )
   end
 end
+
+Page.create(title: "About", content: "This is the About page.")
+Page.create(title: "Contact", content: "This is the Contact page.")
