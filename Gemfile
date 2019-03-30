@@ -7,7 +7,7 @@ gem 'activeadmin'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'pager_api'
+gem 'api-pagination'
 gem 'kaminari'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

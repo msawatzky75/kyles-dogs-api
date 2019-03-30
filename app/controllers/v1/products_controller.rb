@@ -14,7 +14,9 @@ module V1
       @products = @products.where('name ILIKE ? OR description ILIKE ?', "%#{params[:search]}%", "%#{params[:search]}%") if params[:search].present?
       @products = @products.where(price: params[:price]) if params[:price].present?
       @products = @products.where(params[:not_between].present? ? 'price NOT BETWEEN ? AND ?' : 'price BETWEEN ? AND ?', params[:price_low].present? ? params[:price_low] : 0, params[:price_high].present? ? params[:price_high] : 1_000_000_000)
-      paginate @products, per_page: 15
+
+      data = @products.page(params[:page] ? params[:page].to_i : 1)
+      render json: { data: data, meta: pagination_meta(data) }
     end
 
     # GET /products/1
@@ -57,6 +59,14 @@ module V1
     # Only allow a trusted parameter "white list" through.
     def product_params
       params.require(:product).permit(:name, :description, :price, :product_status_code, :product_category)
+    end
+
+    def pagination_meta(object)
+      { current_page: object.current_page,
+      next_page: object.next_page,
+      prev_page: object.prev_page,
+      total_pages: object.total_pages,
+      total_count: object.total_count }
     end
   end
 end
