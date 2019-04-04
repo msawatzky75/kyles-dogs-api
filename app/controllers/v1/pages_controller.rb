@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module V1
   class PagesController < ApiController
-    before_action :set_page, only: [:show, :update, :destroy]
+    before_action :set_page, only: %i[show update destroy]
 
     # GET /pages
     def index

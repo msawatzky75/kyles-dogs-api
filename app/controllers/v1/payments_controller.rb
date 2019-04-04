@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module V1
   class PaymentsController < ApiController
-    before_action :set_payment, only: [:show, :update, :destroy]
+    before_action :set_payment, only: %i[show update destroy]
 
     # GET /payments
     def index

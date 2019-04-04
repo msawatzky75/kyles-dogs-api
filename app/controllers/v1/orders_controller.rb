@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module V1
   class OrdersController < ApiController
-    before_action :set_order, only: [:show, :update, :destroy]
+    before_action :set_order, only: %i[show update destroy]
 
     # GET /orders
     def index

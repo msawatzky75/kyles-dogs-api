@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module V1
   class ProductCategoriesController < ApiController
-    before_action :set_product_category, only: [:show, :update, :destroy]
+    before_action :set_product_category, only: %i[show update destroy]
 
     # GET /product_categories
     def index

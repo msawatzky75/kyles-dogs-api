@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module V1
   class InvoicesController < ApiController
-    before_action :set_invoice, only: [:show, :update, :destroy]
+    before_action :set_invoice, only: %i[show update destroy]
 
     # GET /invoices
     def index

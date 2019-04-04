@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module V1
   class InvoiceStatusCodesController < ApiController
-    before_action :set_invoice_status_code, only: [:show, :update, :destroy]
+    before_action :set_invoice_status_code, only: %i[show update destroy]
 
     # GET /invoice_status_codes
     def index

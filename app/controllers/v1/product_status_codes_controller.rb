@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module V1
   class ProductStatusCodesController < ApiController
-    before_action :set_product_status_code, only: [:show, :update, :destroy]
+    before_action :set_product_status_code, only: %i[show update destroy]
 
     # GET /product_status_codes
     def index
