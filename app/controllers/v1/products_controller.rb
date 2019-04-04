@@ -9,6 +9,7 @@ module V1
       @products = Product.all # creates an anonymous scope
       @products = @products.where(product_category: params[:product_category]) if params[:product_category].present?
       @products = @products.where(product_status_code: params[:product_status_code]) if params[:product_status_code].present?
+      @products = @products.where(product_status_code: ProductStatusCode.where('name ILIKE ?', params[:product_status_code_name]).first) if params[:product_status_code_name].present? && params[:product_status_code_name].downcase != 'all'
       @products = @products.where('name ILIKE ?', "%#{params[:name]}%") if params[:name].present?
       @products = @products.where('description ILIKE ?', "%#{params[:description]}%") if params[:description].present?
       @products = @products.where('name ILIKE ? OR description ILIKE ?', "%#{params[:search]}%", "%#{params[:search]}%") if params[:search].present?
