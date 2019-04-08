@@ -1,0 +1,10 @@
+{
+  "name": "kyles-dogs-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/msawatzky75/kyles-dogs-api.git",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "docker build -t msawatzky75/kyles-dogs-api . && docker login && docker push msawatzky75/kyles-dogs-api"
+  }
+}
